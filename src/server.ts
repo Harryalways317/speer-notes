@@ -12,6 +12,14 @@ app.use(cors());
 app.use(rateLimiter);
 
 // Routes
+app.use('/', (req, res) => {
+  res.send(
+    'Welcome to My Submission for Speer Notes, use /api as base end point!'
+  );
+});
+app.use('/api/health', (req, res) => {
+  res.send('Service is up and running! :)');
+});
 app.use('/api', notesRoutes);
 
 app.listen(PORT, () => {
