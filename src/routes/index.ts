@@ -1,4 +1,2 @@
-import authRoutes from './auth.route';
-export {
-    authRoutes
-}
+import notesRoutes from './notes.route';
+export { notesRoutes };

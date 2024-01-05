@@ -1,8 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import { rateLimiter } from './middlewares';
-import { authRoutes } from './routes';
-
+import { notesRoutes } from './routes';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -13,8 +12,7 @@ app.use(cors());
 app.use(rateLimiter);
 
 // Routes
-app.use('/auth', authRoutes);
-
+app.use('/api', notesRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
