@@ -1,0 +1,1 @@
+CREATE INDEX note_full_text_idx ON "Note" USING gin (to_tsvector('english', title || ' ' || content));
