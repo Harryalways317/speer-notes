@@ -14,4 +14,36 @@ model User {
   password      String
   createdAt     DateTime     @default(now())
   updatedAt     DateTime     @updatedAt
+  notes         Note[]
+  sharedWithMe  SharedNote[] @relation("SharedWith")
+  sharedByMe    SharedNote[] @relation("SharedBy")
+}
+
+
+model Note {
+  id            String          @id @default(uuid())
+  title         String
+  content       String?
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+  deletedAt     DateTime?    // as i am thinking to do soft deletes and batch delete all after some time(here is me being crafty)
+  authorId      String
+  author        User         @relation(fields: [authorId], references: [id])
+  shared        SharedNote[]
+  @@index([authorId], name: "idx_notes_author")
+}
+
+model SharedNote {
+  id           String    @id @default(uuid())
+  createdAt    DateTime  @default(now())
+  noteId       String
+  note         Note      @relation(fields: [noteId], references: [id])
+  ownerId      String
+  owner        User      @relation(name: "SharedBy", fields: [ownerId], references: [id])
+  sharedWithId String
+  sharedWith   User      @relation(name: "SharedWith", fields: [sharedWithId], references: [id])
+  
+  @@index([noteId], name: "idx_shared_notes_note")
+  @@index([ownerId], name: "idx_shared_notes_owner")
+  @@index([sharedWithId], name: "idx_shared_notes_sharedWith")
 }
