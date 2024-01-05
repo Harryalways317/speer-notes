@@ -10,6 +10,7 @@ import {
   getNoteSharedWithUserById,
   searchUserNotes,
 } from '../models';
+import { validationResult } from 'express-validator';
 
 const getAllNotesHandler = async (req: Request, res: Response) => {
   try {
@@ -40,6 +41,10 @@ const createNoteHandler = async (req: Request, res: Response) => {
   try {
     const userId = req.body.user.id;
     console.log(userId);
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
     const { title, content } = req.body;
     const newNote = await createNoteForUser(title, content, userId);
     res.status(201).json(newNote);
@@ -51,6 +56,10 @@ const createNoteHandler = async (req: Request, res: Response) => {
 const updateNoteHandler = async (req: Request, res: Response) => {
   try {
     const userId = req.body.user.id;
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
     const noteId = req.params.id;
     const { title, content } = req.body;
     const updatedNote = await updateNoteByIdAndUserId(noteId, userId, {
@@ -66,6 +75,10 @@ const updateNoteHandler = async (req: Request, res: Response) => {
 const deleteNoteHandler = async (req: Request, res: Response) => {
   try {
     const userId = req.body.user.id;
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
     const noteId = req.params.id;
     await deleteNoteByIdAndUserId(noteId, userId);
     res.status(204).send();
@@ -77,6 +90,10 @@ const deleteNoteHandler = async (req: Request, res: Response) => {
 const shareNoteHandler = async (req: Request, res: Response) => {
   try {
     const userId = req.body.user.id;
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
     const noteId = req.params.id;
     const { sharedWithId } = req.body; // User ID of the user we want to share with
     const sharedNote = await shareNoteWithUser(noteId, userId, sharedWithId);
@@ -89,6 +106,10 @@ const shareNoteHandler = async (req: Request, res: Response) => {
 const searchNotesHandler = async (req: Request, res: Response) => {
   try {
     const userId = req.body.user.id;
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
     const query = req.query.q as string;
     console.log(query);
     const notes = await searchUserNotes(userId, query);
