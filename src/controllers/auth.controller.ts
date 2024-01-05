@@ -4,17 +4,12 @@ import { createToken } from '../services';
 import bcrypt from 'bcryptjs';
 import { validationResult } from 'express-validator';
 
-
-
-
-
- const signupHandler = async (req: Request, res: Response) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
-    }
+const signupHandler = async (req: Request, res: Response) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
   const { email, password } = req.body;
-  
 
   try {
     const newUser = await createUser(email, password);
@@ -28,9 +23,8 @@ import { validationResult } from 'express-validator';
   }
 };
 
-
- const loginHandler = async (req: Request, res: Response) => {
-    const errors = validationResult(req);
+const loginHandler = async (req: Request, res: Response) => {
+  const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
   }
@@ -57,6 +51,5 @@ import { validationResult } from 'express-validator';
     }
   }
 };
-
 
 export { signupHandler, loginHandler };

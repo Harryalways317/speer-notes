@@ -1,2 +1,3 @@
 import notesRoutes from './notes.route';
-export { notesRoutes };
+import authRoutes from './auth.route';
+export { notesRoutes, authRoutes };

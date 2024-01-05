@@ -14,17 +14,6 @@ import { isAuth } from '../middlewares/auth.middleware';
 const router = Router();
 
 //validations
-const validateSignup = [
-  body('email').isEmail().withMessage('Enter a valid email address'),
-  body('password')
-    .isLength({ min: 6 })
-    .withMessage('Password must be at least 6 characters long'),
-];
-
-const validateLogin = [
-  body('email').isEmail().withMessage('Enter a valid email address'),
-  body('password').not().isEmpty().withMessage('Password is required'),
-];
 
 const validateCreateNote = [
   body('title').trim().not().isEmpty().withMessage('Title is required'),
@@ -46,12 +35,6 @@ const validateShareNote = [
 const validateSearchNotes = [
   query('q').trim().not().isEmpty().withMessage('Search query is required'),
 ];
-
-// Signup route
-router.post('/signup', validateSignup, signupHandler);
-
-// Login route
-router.post('/login', validateLogin, loginHandler);
 
 router.get('/notes', isAuth, getAllNotesHandler);
 router.get('/notes/:id', isAuth, getNoteByIdHandler);

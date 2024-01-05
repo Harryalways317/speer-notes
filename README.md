@@ -1,6 +1,14 @@
 Speer-Notes
 
 
+# Speer Notes Tech & Implementation Description
+Tech Stack : Node JS, Typescript, Express, Postgres, Prisma
+
+
+The code is deployed under https://speer-notes-production.up.railway.app/
+Feel Free to test it.
+
+
 
 # Speer Notes API Documentation
 
@@ -172,7 +180,7 @@ Welcome to the Speer Notes API. Use `/api` as the base endpoint.
     ]
   ```
 
-### `POST /api/signup`
+### `POST /api/auth/signup`
 
 - **Description**: Register a new user.
 - **Request**:
@@ -190,7 +198,14 @@ Welcome to the Speer Notes API. Use `/api` as the base endpoint.
   }
   ```
 
-### `POST /api/login`
+  ### Edge cases are handled like
+  ```json
+  {
+    "message": "A user with this email already exists"
+  }
+    ```
+
+### `POST /api/auth/login`
 
 - **Description**: Authenticate a user and return a token.
 - **Request**:

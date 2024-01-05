@@ -4,7 +4,7 @@ import fs from 'fs';
 import path from 'path';
 import MarkdownIt from 'markdown-it';
 import { rateLimiter } from './middlewares';
-import { notesRoutes } from './routes';
+import { authRoutes, notesRoutes } from './routes';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -36,6 +36,8 @@ app.get('/', (req, res) => {
 app.get('/api/health', (req, res) => {
   res.send('Service is up and running! :)');
 });
+
+app.use('/api/auth', authRoutes);
 app.use('/api', notesRoutes);
 
 app.listen(PORT, () => {
