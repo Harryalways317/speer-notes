@@ -1,0 +1,589 @@
+{
+	"info": {
+		"_postman_id": "0e152c5a-23e0-44d2-805e-8b02e046f84c",
+		"name": "Notes App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30351558"
+	},
+	"item": [
+		{
+			"name": "Signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\" : \"harishvadaparty123@gmail.com\",\n    \"password\" : \"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/auth/signup",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Missing Fields",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "RateLimit-Policy",
+							"value": "100;w=900"
+						},
+						{
+							"key": "RateLimit-Limit",
+							"value": "100"
+						},
+						{
+							"key": "RateLimit-Remaining",
+							"value": "99"
+						},
+						{
+							"key": "RateLimit-Reset",
+							"value": "900"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "203"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"cb-FQ1xFqhSNsaN0s2zmRM9owuc9L0\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 05 Jan 2024 06:32:27 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"errors\": [\n        {\n            \"type\": \"field\",\n            \"msg\": \"Enter a valid email address\",\n            \"path\": \"email\",\n            \"location\": \"body\"\n        },\n        {\n            \"type\": \"field\",\n            \"msg\": \"Password must be at least 6 characters long\",\n            \"path\": \"password\",\n            \"location\": \"body\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\" : \"harishvadaparty@gmail.com\",\n    \"password\" : \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "RateLimit-Policy",
+							"value": "100;w=900"
+						},
+						{
+							"key": "RateLimit-Limit",
+							"value": "100"
+						},
+						{
+							"key": "RateLimit-Remaining",
+							"value": "96"
+						},
+						{
+							"key": "RateLimit-Reset",
+							"value": "659"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "81"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"51-yeKGIC91uokM5WxKfvpijFbXtuw\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 05 Jan 2024 06:36:29 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"b696e8f2-ae87-4cd3-ae50-93a52bd47fd3\",\n    \"email\": \"harishvadaparty@gmail.com\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\" : \"harishvadaparty@gmail.com\",\n    \"password\" : \"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/auth/login",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Missing Fields",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "RateLimit-Policy",
+							"value": "100;w=900"
+						},
+						{
+							"key": "RateLimit-Limit",
+							"value": "100"
+						},
+						{
+							"key": "RateLimit-Remaining",
+							"value": "94"
+						},
+						{
+							"key": "RateLimit-Reset",
+							"value": "583"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "180"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"b4-Eb9RSdrQEzqApKWoKKxpL0Q7HRw\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 05 Jan 2024 06:37:44 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"errors\": [\n        {\n            \"type\": \"field\",\n            \"msg\": \"Enter a valid email address\",\n            \"path\": \"email\",\n            \"location\": \"body\"\n        },\n        {\n            \"type\": \"field\",\n            \"msg\": \"Password is required\",\n            \"path\": \"password\",\n            \"location\": \"body\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Create Note",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6ImI2OTZlOGYyLWFlODctNGNkMy1hZTUwLTkzYTUyYmQ0N2ZkMyIsImlhdCI6MTcwNDQ1MTY5OSwiZXhwIjoxNzA0NDU1Mjk5fQ.OzxtCbhTbBYho-dNSaOgL5didrYLb7Z6112XnNuUNm0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\" : \"Hii2\",\n    \"content\" : \"This is COntent2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/notes",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"notes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Notes",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6ImI2OTZlOGYyLWFlODctNGNkMy1hZTUwLTkzYTUyYmQ0N2ZkMyIsImlhdCI6MTcwNDQ1OTAxOCwiZXhwIjoxNzA0NDYyNjE4fQ.sn68haYYrFBEu_F4uqLuWHS99rlRb-5PIlqheLddKIA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/notes",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"notes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Single Note",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6ImI2OTZlOGYyLWFlODctNGNkMy1hZTUwLTkzYTUyYmQ0N2ZkMyIsImlhdCI6MTcwNDQ0OTc2MiwiZXhwIjoxNzA0NDUzMzYyfQ.kUM83XQO7DKLnR-hjjVEhSq5h1O9cP0tDNM_dHKsfX8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/notes/0a3cd214-5383-467a-a702-408205d35fb5",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"notes",
+						"0a3cd214-5383-467a-a702-408205d35fb5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update a note",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6ImI2OTZlOGYyLWFlODctNGNkMy1hZTUwLTkzYTUyYmQ0N2ZkMyIsImlhdCI6MTcwNDQ0OTc2MiwiZXhwIjoxNzA0NDUzMzYyfQ.kUM83XQO7DKLnR-hjjVEhSq5h1O9cP0tDNM_dHKsfX8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\" : \"Hii2 - Updated\",\n    \"content\" : \"This is COntent2 Updated\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/notes/0a3cd214-5383-467a-a702-408205d35fb5",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"notes",
+						"0a3cd214-5383-467a-a702-408205d35fb5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a note",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6ImI2OTZlOGYyLWFlODctNGNkMy1hZTUwLTkzYTUyYmQ0N2ZkMyIsImlhdCI6MTcwNDQ1OTAxOCwiZXhwIjoxNzA0NDYyNjE4fQ.sn68haYYrFBEu_F4uqLuWHS99rlRb-5PIlqheLddKIA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\" : \"Hii2 - Updated\",\n    \"content\" : \"This is COntent2 Updated\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/notes/0cf59c3c-832c-4c28-a0e7-ed9a9afd2ef6",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"notes",
+						"0cf59c3c-832c-4c28-a0e7-ed9a9afd2ef6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Share post",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6ImI2OTZlOGYyLWFlODctNGNkMy1hZTUwLTkzYTUyYmQ0N2ZkMyIsImlhdCI6MTcwNDQ0OTc2MiwiZXhwIjoxNzA0NDUzMzYyfQ.kUM83XQO7DKLnR-hjjVEhSq5h1O9cP0tDNM_dHKsfX8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sharedWithId\" : \"34947484-a7e8-4713-8357-eea15b411e17\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/notes/0a3cd214-5383-467a-a702-408205d35fb5/share",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"notes",
+						"0a3cd214-5383-467a-a702-408205d35fb5",
+						"share"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Post",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6ImI2OTZlOGYyLWFlODctNGNkMy1hZTUwLTkzYTUyYmQ0N2ZkMyIsImlhdCI6MTcwNDQ1NDQxMiwiZXhwIjoxNzA0NDU4MDEyfQ.p1nawiUykdtEGdgGL09lnWG1Ka4IymkXtS2KDtMobuw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sharedWithId\" : \"34947484-a7e8-4713-8357-eea15b411e17\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/search?q=Updated",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"search"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "Updated"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://speer-notes-production.up.railway.app"
+		}
+	]
+}
