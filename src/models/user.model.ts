@@ -19,6 +19,9 @@ const createUser = async (email: string, password: string) => {
       },
     });
 
+    console.log('User created successfully');
+    console.log(user);
+
     return user;
   } catch (error) {
     if (error instanceof Prisma.PrismaClientKnownRequestError) {
