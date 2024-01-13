@@ -14,6 +14,7 @@ const md = new MarkdownIt();
 app.use(express.json());
 app.use(cors());
 app.use(rateLimiter);
+app.set('trust proxy', true);
 
 // Routes
 // app.get('/', (req, res) => {
